@@ -520,20 +520,26 @@ void idle(
   #endif  // MAX7219_DEBUG
 
   lcd_update();
+  
+  //////////////////////////
 
   #if ENABLED(HOST_KEEPALIVE_FEATURE)
     gcode.host_keepalive();
   #endif
 
+
   #if ENABLED(AUTO_REPORT_TEMPERATURES) && (HAS_TEMP_HOTEND || HAS_TEMP_BED)
     thermalManager.auto_report_temperatures();
   #endif
 
+
+/*  ADVANCED PAUSE BLOCKS ON M100
   manage_inactivity(
     #if ENABLED(ADVANCED_PAUSE_FEATURE)
       no_stepper_sleep
     #endif
   );
+*/
 
   thermalManager.manage_heater();
 
@@ -863,6 +869,7 @@ void setup() {
   #if ENABLED(PARKING_EXTRUDER)
     pe_magnet_init();
   #endif
+
 }
 
 /**
@@ -875,6 +882,8 @@ void setup() {
  *  - Call endstop manager
  *  - Call LCD update
  */
+
+
 void loop() {
   if (commands_in_queue < BUFSIZE) get_available_commands();
 

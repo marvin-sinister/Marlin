@@ -56,13 +56,14 @@
 #define Y_DIR_PIN          PB13
 #define Y_ENABLE_PIN       PA8
 
+//On M100 Zaxis is driven by ULN
 #define Z_STEP_PIN         PB10
 #define Z_DIR_PIN          PB2
 #define Z_ENABLE_PIN       PB11
 
-#define E0_STEP_PIN        PB0
-#define E0_DIR_PIN         PC13
-#define E0_ENABLE_PIN      PB1
+#define E0_STEP_PIN        PB10
+#define E0_DIR_PIN         PB2
+#define E0_ENABLE_PIN      PA8
 
 //
 // Temperature Sensors
